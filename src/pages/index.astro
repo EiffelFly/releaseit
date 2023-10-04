@@ -1,19 +1,21 @@
 ---
-import Editor from '@/components/editor/Editor';
-import '@/styles/globals.css'
+import Editor from "@/components/editor/Editor";
+import "@/styles/globals.css";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1 class="text-5xl">Astro</h1>
-		
-		<Editor client:load/>
-	</body>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Releaseit</title>
+  </head>
+  <body class="bg-background">
+    <div class="flex min-h-screen min-w-[100vh] flex-1 flex-col">
+      <div class="m-auto">
+        <Editor className="!h-[750px] !w-[1200px]" client:load />
+      </div>
+    </div>
+  </body>
 </html>

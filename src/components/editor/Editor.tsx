@@ -1,14 +1,29 @@
+import { cn } from "@/lib/utils";
 import { useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
+import Paragraph from "@tiptap/extension-paragraph";
 
-const Editor = () => {
+export type EditorProps = {
+  className?: string;
+};
+
+const Editor = ({ className }: EditorProps) => {
   const editor = useEditor({
-    extensions: [StarterKit],
-    content: "<p>Hello World! 🌎️</p>",
+    extensions: [
+      StarterKit,
+      Paragraph.configure({
+        HTMLAttributes: {
+          class: "!my-0",
+        },
+      }),
+    ],
+    content: "<h2>This is releaseit</h2>",
     editorProps: {
       attributes: {
-        class:
-          "prose dark:prose-invert prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none",
+        class: cn(
+          "releaseit-editor prose dark:prose-invert border border-foreground p-10 rounded-lg prose-sm sm:prose-base focus:outline-none",
+          className,
+        ),
       },
     },
   });
